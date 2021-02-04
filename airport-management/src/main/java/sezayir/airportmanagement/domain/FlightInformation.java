@@ -1,10 +1,12 @@
 package sezayir.airportmanagement.domain;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -15,35 +17,37 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Document(collection = "flights")
+@Document("flights")
 public class FlightInformation {
+    @Id
+    private String id;
 
-	@Id
-	private String id;
+    @Indexed(unique = true)
+    private String internalId;
 
-	@Field(name = "departure")
-	@Indexed
-	private String departureCity;
+    @Field("departure")
+    @TextIndexed
+    private String departureCity;
 
-	@Field(name="destination")
-	@Indexed
-	private String destinationCity;
+    @Field("destination")
+    @TextIndexed
+    private String destinationCity;
 
-	private FlightType type;
+    @TextIndexed(weight = 2)
+    private String description;
 
-	private boolean isDelayed;
+    private FlightType type;
+    private boolean isDelayed;
+    private int durationMin;
+    private LocalDate departureDate;
+    private Aircraft aircraft;
 
-	private int durationMin;
-
-	private LocalDate departureDate;
-
-	private Aircraft aircraft;
-	
     @Transient
     private LocalDate createdAt;
-    
-    public FlightInformation(){
+
+    public FlightInformation() {
         this.createdAt = LocalDate.now();
+        this.internalId = UUID.randomUUID().toString();
     }
 
 

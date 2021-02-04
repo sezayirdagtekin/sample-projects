@@ -20,11 +20,11 @@ public class ApplicationRunner implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		log.info("Application started...");
-
+/*
 		FlightInformation flight = new FlightInformation();
 		template.save(flight);
 		log.info("FlightInformation saved...");
-
+*/
 	}
 
 }
