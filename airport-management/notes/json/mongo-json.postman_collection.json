@@ -10,7 +10,19 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://localhost:8080/flight-info/repository/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"flight-info",
+						"repository",
+						"all"
+					]
+				}
 			},
 			"response": []
 		},
@@ -19,7 +31,76 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://localhost:8080/flight-info/template/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"flight-info",
+						"template",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/repository/page/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/flight-info/page/all?field=departure&pageNb=0&pageSize=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"flight-info",
+						"page",
+						"all"
+					],
+					"query": [
+						{
+							"key": "field",
+							"value": "departure"
+						},
+						{
+							"key": "pageNb",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "flight-info/template/id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/flight-info/template/id/601a5520bbdd3c32c4a8d6d9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"flight-info",
+						"template",
+						"id",
+						"601a5520bbdd3c32c4a8d6d9"
+					]
+				}
 			},
 			"response": []
 		}

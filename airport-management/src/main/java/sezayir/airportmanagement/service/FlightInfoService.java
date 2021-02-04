@@ -30,4 +30,8 @@ public class FlightInfoService {
 		return dao.findAll(field,pageNb,pageSize);
 	}
 
+	public FlightInformation findById(String id) {
+		return dao.findById(id);
+	}
+
 }
