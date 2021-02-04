@@ -26,4 +26,8 @@ public class FlightInfoService {
 		return dao.findAllWithRepository();
 	}
 
+	public List<FlightInformation> findAll(String field, int pageNb, int pageSize) {
+		return dao.findAll(field,pageNb,pageSize);
+	}
+
 }

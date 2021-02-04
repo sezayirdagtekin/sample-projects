@@ -1,0 +1,27 @@
+{
+	"info": {
+		"_postman_id": "9e5a57b8-e54e-4753-b9d7-6a1900732ed1",
+		"name": "mongo-json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "flight-info/repository/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "flight-info/template/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}

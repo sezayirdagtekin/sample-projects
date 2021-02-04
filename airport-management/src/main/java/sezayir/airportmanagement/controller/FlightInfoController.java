@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import sezayir.airportmanagement.domain.FlightInformation;
@@ -47,6 +48,13 @@ public class FlightInfoController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
+	}
+
+	@RequestMapping(value = "/page/all", method = RequestMethod.GET)
+	public List<FlightInformation> findAll(@RequestParam(required = false, name = "field") String field,
+			@RequestParam(required = false, name = "pageNb") int pageNb,
+			@RequestParam(required = false, name = "pageSize") int pageSize) {
+		return flightInfoService.findAll(field, pageNb, pageSize);
 	}
 
 }
