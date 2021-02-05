@@ -169,6 +169,41 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/flight-info/template/aircraft/model",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "model",
+							"value": "Airbus A320",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/flight-info/template/aircraft/model",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"flight-info",
+						"template",
+						"aircraft",
+						"model"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
