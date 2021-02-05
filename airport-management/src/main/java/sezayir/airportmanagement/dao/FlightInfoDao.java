@@ -9,6 +9,8 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.CriteriaDefinition;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.TextCriteria;
+import org.springframework.data.mongodb.core.query.TextQuery;
 import org.springframework.stereotype.Component;
 
 import lombok.extern.java.Log;
@@ -55,6 +57,15 @@ public class FlightInfoDao {
 				Criteria.where("destination.city").is(destination));
 		criteria.andOperator(Criteria.where("delayed").is(false));
 		Query query = new Query(criteria);
+
+		return template.find(query, FlightInformation.class);
+	}
+
+	public List<FlightInformation> findByFreeText(String text) {
+
+		TextCriteria textCriteria = TextCriteria.forDefaultLanguage().matching(text);
+
+		Query query = TextQuery.query(textCriteria);
 
 		return template.find(query, FlightInformation.class);
 	}

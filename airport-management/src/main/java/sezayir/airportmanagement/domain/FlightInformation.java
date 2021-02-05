@@ -22,9 +22,6 @@ public class FlightInformation {
     @Id
     private String id;
 
-    @Indexed(unique = true)
-    private String internalId;
-
     @Field("departure")
     @TextIndexed
     private String departureCity;
@@ -47,7 +44,7 @@ public class FlightInformation {
 
     public FlightInformation() {
         this.createdAt = LocalDate.now();
-        this.internalId = UUID.randomUUID().toString();
+  
     }
 
 

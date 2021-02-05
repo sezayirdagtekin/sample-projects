@@ -27,7 +27,7 @@ public class FlightInfoService {
 	}
 
 	public List<FlightInformation> findAll(String field, int pageNb, int pageSize) {
-		return dao.findAll(field,pageNb,pageSize);
+		return dao.findAll(field, pageNb, pageSize);
 	}
 
 	public FlightInformation findById(String id) {
@@ -41,10 +41,12 @@ public class FlightInfoService {
 
 	public List<FlightInformation> findRelatedToCityAndNotDelayed(String departure, String destination, boolean delay) {
 
-		return dao.findRelatedToCityAndNotDelayed(departure, destination,delay);
+		return dao.findRelatedToCityAndNotDelayed(departure, destination, delay);
 	}
 
-	
-
+	public List<FlightInformation> findByFreeText(String text) {
+		return dao.findByFreeText(text);
+		
+	}
 
 }

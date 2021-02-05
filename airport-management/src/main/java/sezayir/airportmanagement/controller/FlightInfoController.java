@@ -108,5 +108,21 @@ public class FlightInfoController {
 		}
 
 	}
+	
+	@RequestMapping(value = "/template/freetext/{text}", method = RequestMethod.GET)
+	public ResponseEntity<List<FlightInformation>> findByFreeText(@PathVariable("text") String text) {
+
+		try {
+			List<FlightInformation> flightInformations = flightInfoService.findByFreeText(text);
+			if (flightInformations.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+
+			return new ResponseEntity<List<FlightInformation>>(flightInformations, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+	}
 
 }
