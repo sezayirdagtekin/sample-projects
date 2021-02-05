@@ -38,8 +38,11 @@ public class FlightInfoDao {
 		return template.find(query, FlightInformation.class);
 	}
 
-	
 	public FlightInformation findById(String id) {
 		return template.findById(id, FlightInformation.class);
+	}
+
+	public List<FlightInformation> findByType(String type) {
+		return repository.findByType(type);
 	}
 }

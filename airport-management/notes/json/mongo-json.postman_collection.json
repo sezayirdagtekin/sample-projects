@@ -103,6 +103,28 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/flight-info/repository/type",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/flight-info/repository/type/International",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"flight-info",
+						"repository",
+						"type",
+						"International"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

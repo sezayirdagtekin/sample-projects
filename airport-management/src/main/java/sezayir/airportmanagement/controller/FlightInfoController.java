@@ -2,8 +2,6 @@ package sezayir.airportmanagement.controller;
 
 import java.util.List;
 
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -70,6 +68,23 @@ public class FlightInfoController {
 			}
 
 			return new ResponseEntity<FlightInformation>(flightInformation, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+	}
+	
+	
+	@RequestMapping(value = "/repository/type/{type}", method = RequestMethod.GET)
+	public ResponseEntity<List<FlightInformation>> findByType(@PathVariable("type") String type) {
+
+		try {
+			List<FlightInformation> flightInformations = flightInfoService.findByType(type);
+			if (flightInformations.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+
+			return new ResponseEntity<List<FlightInformation>>(flightInformations, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}

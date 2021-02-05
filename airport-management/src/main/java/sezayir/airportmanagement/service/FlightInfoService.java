@@ -34,4 +34,9 @@ public class FlightInfoService {
 		return dao.findById(id);
 	}
 
+	public List<FlightInformation> findByType(String type) {
+
+		return dao.findByType(type);
+	}
+
 }
