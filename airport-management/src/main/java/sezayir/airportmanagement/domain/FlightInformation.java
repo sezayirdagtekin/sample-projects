@@ -1,11 +1,10 @@
 package sezayir.airportmanagement.domain;
 
 import java.time.LocalDate;
-import java.util.UUID;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -37,7 +36,10 @@ public class FlightInformation {
     private boolean isDelayed;
     private int durationMin;
     private LocalDate departureDate;
+    
     private Aircraft aircraft;
+    
+    private List<Crew>  crew;
 
     @Transient
     private LocalDate createdAt;
