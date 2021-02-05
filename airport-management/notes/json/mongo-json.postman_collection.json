@@ -125,6 +125,50 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/flight-info/template/related-cities",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "departure",
+							"value": "Bucharest",
+							"type": "text"
+						},
+						{
+							"key": "destination",
+							"value": "Nice",
+							"type": "text"
+						},
+						{
+							"key": "delay",
+							"value": "false",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/flight-info/template/relatedcities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"flight-info",
+						"template",
+						"relatedcities"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

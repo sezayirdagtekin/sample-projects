@@ -39,4 +39,12 @@ public class FlightInfoService {
 		return dao.findByType(type);
 	}
 
+	public List<FlightInformation> findRelatedToCityAndNotDelayed(String departure, String destination, boolean delay) {
+
+		return dao.findRelatedToCityAndNotDelayed(departure, destination,delay);
+	}
+
+	
+
+
 }

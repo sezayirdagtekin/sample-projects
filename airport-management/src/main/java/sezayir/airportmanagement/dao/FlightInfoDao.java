@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.CriteriaDefinition;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
@@ -45,4 +47,16 @@ public class FlightInfoDao {
 	public List<FlightInformation> findByType(String type) {
 		return repository.findByType(type);
 	}
+
+	public List<FlightInformation> findRelatedToCityAndNotDelayed(String departure, String destination, boolean delay) {
+
+		Criteria criteria = new Criteria();
+		criteria.orOperator(Criteria.where("departure.city").is(departure),
+				Criteria.where("destination.city").is(destination));
+		criteria.andOperator(Criteria.where("delayed").is(false));
+		Query query = new Query(criteria);
+
+		return template.find(query, FlightInformation.class);
+	}
+
 }

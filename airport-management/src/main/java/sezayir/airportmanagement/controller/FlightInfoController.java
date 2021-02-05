@@ -90,5 +90,23 @@ public class FlightInfoController {
 		}
 
 	}
+	
+	
+	@RequestMapping(value = "/template/relatedcities", method = RequestMethod.GET)
+	public ResponseEntity<List<FlightInformation>> findRelatedToCityAndNotDelayed(@RequestParam("departure")  String departure,
+			@RequestParam("destination")  String destination,@RequestParam("delay") boolean delay) {
+
+		try {
+			List<FlightInformation> flightInformations = flightInfoService.findRelatedToCityAndNotDelayed(departure,destination,delay);
+			if (flightInformations.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+
+			return new ResponseEntity<List<FlightInformation>>(flightInformations, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+	}
 
 }
