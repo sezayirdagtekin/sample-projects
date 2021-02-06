@@ -243,7 +243,7 @@
 					"formdata": [
 						{
 							"key": "model",
-							"value": "Airbus A320",
+							"value": "Airbus A319",
 							"type": "text"
 						}
 					]
@@ -259,6 +259,75 @@
 						"aircraft",
 						"template",
 						"model"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/aircraft/repostiory/aircraft/model",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "model",
+							"value": "Airbus A320",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/aircraft/repository/model",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aircraft",
+						"repository",
+						"model"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/aircraft/repostiory/aircraft/model/like",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "model",
+							"value": "Airbus",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/aircraft/repository/model/like",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aircraft",
+						"repository",
+						"model",
+						"like"
 					]
 				}
 			},

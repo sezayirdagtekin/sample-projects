@@ -31,4 +31,11 @@ public class AirCraftService {
 		dao.updateAirCraft(aircraft);
 	}
 
+	public List<Aircraft> findByModelUsingRepostiory(String model) {
+		return dao.findByModelUsingRepostiory(model);
+	}
+	public List<Aircraft> findByModelLike(String modelStr) {
+		return dao.findByModelLike(modelStr);
+	}
+
 }

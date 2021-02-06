@@ -39,6 +39,38 @@ public class AirCraftController {
 
 	}
 
+	@RequestMapping(value = "/repository/model", method = RequestMethod.GET)
+	public ResponseEntity<List<Aircraft>> findByModelUsingRepostiory(@RequestParam("model") String model) {
+
+		try {
+			List<Aircraft> aircrafts = service.findByModelUsingRepostiory(model);
+			if (aircrafts.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+
+			return new ResponseEntity<List<Aircraft>>(aircrafts, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+	}
+
+	@RequestMapping(value = "/repository/model/like", method = RequestMethod.GET)
+	public ResponseEntity<List<Aircraft>> findByModelLike(@RequestParam("model") String model) {
+
+		try {
+			List<Aircraft> aircrafts = service.findByModelLike(model);
+			if (aircrafts.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+
+			return new ResponseEntity<List<Aircraft>>(aircrafts, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+	}
+
 	@RequestMapping(value = "/template/delete/code", method = RequestMethod.DELETE)
 	public void deleteAirCraft(@RequestBody Aircraft aircraft) {
 		service.deleteByAirCraftCode(aircraft.getCode());
