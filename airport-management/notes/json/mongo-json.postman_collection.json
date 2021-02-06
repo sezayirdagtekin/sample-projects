@@ -171,7 +171,7 @@
 			"response": []
 		},
 		{
-			"name": "/flight-info/template/aircraft/model",
+			"name": "/aircraft/template/aircraft/model",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -189,16 +189,15 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8080/flight-info/template/aircraft/model",
+					"raw": "http://localhost:8080/aircraft/template/model",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"flight-info",
-						"template",
 						"aircraft",
+						"template",
 						"model"
 					]
 				}
