@@ -225,6 +225,92 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/aircraft/template/delete/code",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n \"code\": \"1b7ad0de-5836-489b-9791-5a81a51cdb81\"\r\n     \r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/aircraft/template/delete/code",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aircraft",
+						"template",
+						"delete",
+						"code"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "aircraft/template/add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"code\": \"1b7ad0de-5836-489b-9791-5a81a51cdb81\",\r\n    \"model\" : \"Airbus A320\",\r\n    \"minRunwayLength\" : 2500,\r\n\t\"range\": 6000,\r\n\t\"capacity\": 150\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/aircraft/template/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aircraft",
+						"template",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "aircraft/template/update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"code\": \"1b7ad0de-5836-489b-9791-5a81a51cdb81\",\r\n    \"model\" : \"Airbus A320\",\r\n    \"nbSeats\" : 90,\r\n\t\"range\": 6000,\r\n\t\"capacity\": 120\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/aircraft/template/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aircraft",
+						"template",
+						"update"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

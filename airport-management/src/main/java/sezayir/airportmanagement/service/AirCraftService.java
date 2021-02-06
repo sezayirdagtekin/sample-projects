@@ -13,10 +13,22 @@ public class AirCraftService {
 
 	@Autowired
 	private AirCraftDao dao;
-	
+
 	public List<Aircraft> findByModel(String model) {
-	
+
 		return dao.findByModel(model);
+	}
+
+	public void deleteByAirCraftCode(String code) {
+		dao.deleteByAirCraftCode(code);
+	}
+
+	public void addAirCraft(Aircraft aircraft) {
+		dao.addAirCraft(aircraft);
+	}
+
+	public void updateAirCraft(Aircraft aircraft) {
+		dao.updateAirCraft(aircraft);
 	}
 
 }
