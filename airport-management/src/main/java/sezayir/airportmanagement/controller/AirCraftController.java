@@ -9,11 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.log4j.Log4j2;
 import sezayir.airportmanagement.domain.Aircraft;
 import sezayir.airportmanagement.service.AirCraftService;
@@ -52,7 +49,7 @@ public class AirCraftController {
 	@RequestMapping(value = "/template/add", method = RequestMethod.POST)
 	public void addAirCraft(@RequestBody Aircraft aircraft) {
 		service.addAirCraft(aircraft);
-		log.info(aircraft.toString() + " deleted");
+		log.info(aircraft.toString() + " added");
 
 	}
 
