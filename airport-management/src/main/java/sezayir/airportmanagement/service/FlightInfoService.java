@@ -49,4 +49,12 @@ public class FlightInfoService {
 		
 	}
 
+	public void addFlightInformation(FlightInformation flightInformation) {
+		dao.addFlightInformation(flightInformation);
+	}
+
+	public void deleteFlightInformation(FlightInformation flightInformation) {
+		dao.deleteFlightInformation(flightInformation);
+	}
+
 }

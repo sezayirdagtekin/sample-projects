@@ -70,4 +70,12 @@ public class FlightInfoDao {
 		return template.find(query, FlightInformation.class);
 	}
 
+	public void addFlightInformation(FlightInformation flightInformation) {
+		template.insert(flightInformation);
+	}
+
+	public void deleteFlightInformation(FlightInformation flightInformation) {
+		template.remove(flightInformation);
+	}
+
 }
