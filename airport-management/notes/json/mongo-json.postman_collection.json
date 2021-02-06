@@ -83,6 +83,66 @@
 			"response": []
 		},
 		{
+			"name": "flight-info/template/add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\" : \"International\",\r\n    \"delayed\" : false,\r\n    \"duration\" : 120,\r\n\t\"departureDate\":\"2020-02-02\",\r\n\t\"distanceKm\": 1870,\r\n    \"departure\" : {\r\n        \"code\": \"CDG\",\r\n        \"city\": \"Istanbul\",\r\n        \"country\":\"Turkey\",\r\n        \"runwayLength\": 4215,\r\n\t\t\"location\": {\r\n\t\t\t\"type\": \"Point\",\r\n\t\t\t\"coordinates\": [2.3, 48.8]\r\n\t\t}\r\n    },\r\n    \"destination\" : {\r\n        \"code\": \"OTP\",\r\n        \"city\": \"Madrid\",\r\n        \"country\":\"Spain\",\r\n        \"runwayLength\": 3500,\r\n\t\t\"location\": {\r\n\t\t\t\"type\": \"Point\",\r\n\t\t\t\"coordinates\": [26.3, 42.4]\r\n\t\t}\r\n    },\r\n    \"aircraftCode\" : \"1b7ad0de-5836-489b-9791-5a81a51cdb81\",\r\n    \"crew\":[\r\n        {\"name\": \"Renaud Cahun\", \"position\": \"Captain\", \"hoursSlept\": 8},\r\n        {\"name\": \"Sezayir Dagtekin\", \"position\": \"Attendant\", \"nationality\": \"Turkish\", \"hoursSlept\": 6},\r\n\t\t{\"name\": \"Cem Tunc\", \"position\": \"Attendant\", \"nationality\": \"Turkish\", \"hoursSlept\": 7}\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/flight-info/template/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"flight-info",
+						"template",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "flight-info/template/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"id\": \"601e7392509fa120b7b60302\"\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/flight-info/template/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"flight-info",
+						"template",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "flight-info/template/id",
 			"request": {
 				"method": "GET",
