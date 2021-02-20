@@ -13,6 +13,11 @@ public class AirCraftService {
 
 	@Autowired
 	private AirCraftDao dao;
+	
+	public List<Aircraft> findAll() {
+		return dao.findAll();
+	}
+	
 
 	public List<Aircraft> findByModel(String model) {
 

@@ -60,4 +60,8 @@ public class AirCraftDao {
 		return repository.findByModelLike(modelStr);
 	}
 
+	public List<Aircraft> findAll() {
+		return repository.findAll();
+	}
+
 }

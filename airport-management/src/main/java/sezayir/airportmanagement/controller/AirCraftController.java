@@ -22,6 +22,24 @@ public class AirCraftController {
 
 	@Autowired
 	AirCraftService service;
+	
+	
+
+	@RequestMapping(value = "/repository/all", method = RequestMethod.GET)
+	public ResponseEntity<List<Aircraft>> findAll() {
+
+		try {
+			List<Aircraft> aircrafts = service.findAll();
+			if (aircrafts.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+
+			return new ResponseEntity<List<Aircraft>>(aircrafts, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+	}
 
 	@RequestMapping(value = "/template/model", method = RequestMethod.GET)
 	public ResponseEntity<List<Aircraft>> findByAircraft(@RequestParam("model") String model) {
