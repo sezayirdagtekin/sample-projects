@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.index.TextIndexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -40,6 +41,9 @@ public class FlightInformation {
     private Aircraft aircraft;
     
     private List<Crew>  crew;
+    
+    @DBRef 
+    private Season season;
 
     @Transient
     private LocalDate createdAt;

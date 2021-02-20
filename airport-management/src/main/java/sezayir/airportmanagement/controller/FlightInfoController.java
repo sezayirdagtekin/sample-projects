@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.log4j.Log4j2;
 import sezayir.airportmanagement.domain.FlightInformation;
+import sezayir.airportmanagement.domain.Season;
 import sezayir.airportmanagement.service.FlightInfoService;
+import sezayir.airportmanagement.service.SeasonService;
 
 @RestController
 @RequestMapping("/flight-info")
@@ -23,6 +26,9 @@ public class FlightInfoController {
 
 	@Autowired
 	FlightInfoService flightInfoService;
+
+	@Autowired
+	SeasonService seasonService;
 
 	@RequestMapping(value = "/template/all", method = RequestMethod.GET)
 	public ResponseEntity<List<FlightInformation>> findAllWithTemplate() {
@@ -128,8 +134,16 @@ public class FlightInfoController {
 
 	}
 
+	@Transactional
 	@RequestMapping(value = "/template/add", method = RequestMethod.POST)
 	public void addFlightInformation(@RequestBody FlightInformation flightInformation) {
+		Season season = null;
+		// Firstly, we should save reference object
+		if (flightInformation.getSeason() != null) {
+			season = seasonService.save(flightInformation.getSeason());
+			flightInformation.setSeason(season);
+		}
+
 		flightInfoService.addFlightInformation(flightInformation);
 		log.info(flightInformation.toString() + " added");
 
