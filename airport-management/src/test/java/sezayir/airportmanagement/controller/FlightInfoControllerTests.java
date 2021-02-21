@@ -25,6 +25,7 @@ import org.springframework.test.web.servlet.ResultMatcher;
 
 import sezayir.airportmanagement.dao.FlightInfoDao;
 import sezayir.airportmanagement.domain.FlightInformation;
+import sezayir.airportmanagement.domain.FlightType;
 import sezayir.airportmanagement.service.FlightInfoService;
 import sezayir.airportmanagement.service.SeasonService;
 
@@ -53,18 +54,30 @@ class FlightInfoControllerTest {
 		flight.setDepartureCity("Istanbul");
 		flight.setDestinationCity("Madrid");
 		flight.setDelayed(false);
+		flight.setType(FlightType.International);
 		flights = new ArrayList<>();
 		flights.add(flight);
 	}
 
 	@Test
-	public void findAllWithTemplate() throws Exception {
+	public void findAllWithTemplateTest() throws Exception {
 
 		when(flightInfoService.findAll()).thenReturn(flights);
 
 		mockMvc.perform(get("/flight-info/template/all")).andExpect(status().isOk());
 
 		verify(flightInfoService, times(1)).findAll();
+
+	}
+	
+	@Test
+	public void findByModelUsingRepostioryTest() throws Exception {
+
+		when(flightInfoService.findByType(FlightType.International.toString())).thenReturn(flights);
+
+		mockMvc.perform(get("/flight-info/repository/type/International")).andExpect(status().isOk());
+
+		verify(flightInfoService, times(1)).findByType(FlightType.International.toString());
 
 	}
 
