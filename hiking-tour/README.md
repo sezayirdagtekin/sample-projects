@@ -14,16 +14,23 @@ What Do You Need?
 You will see main menu
 ---BOOKING MAIN MENU----
 [1]  Active Tour List(Info)
+
 [2]  Create New Bookings(Hiker)
+
 [3]  Cancel Bookings(Hiker)
+
 [4]  List My Bookings(Hiker)
+
 [5]  List Daily Bookings(Admin)
+
 [E]  Exit
 
  Also there is second sub menu for creation booking
 
 [1]  Create booking for yourself?
+
 [2]  Create booking for friends?
+
 [M]  Main Menu
 
 You can follow the directions. input controls available in many places
